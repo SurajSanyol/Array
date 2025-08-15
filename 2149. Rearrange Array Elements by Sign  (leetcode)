@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+
+        vector<int> result;
+
+        vector<int> positiveElement;
+        vector<int> negativeElement;
+
+        for (auto i : nums) {
+            if (i > 0) {
+                positiveElement.push_back(i);
+
+            } else {
+                negativeElement.push_back(i);
+            }
+        }
+
+        for (int i = 0; i < positiveElement.size(); i++) {
+
+            result.push_back(positiveElement[i]);
+            result.push_back(negativeElement[i]);
+        }
+
+        return result;
+    }
+};
