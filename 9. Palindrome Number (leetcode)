@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        long long int reverseDigit = 0;
+        long long int copyX = x;
+        if (x < 0) {
+            return false;
+        }
+        if (x == 0) {
+            return true;
+        }
+
+        while (copyX > 0) {
+            long long int reminder = copyX % 10;
+            // this is important line 🚀🚀🚀🚀🚀🚀🚀🚀
+            reverseDigit = reverseDigit * 10 + reminder;
+            copyX = copyX / 10;
+        }
+
+        if (reverseDigit == x) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+};
