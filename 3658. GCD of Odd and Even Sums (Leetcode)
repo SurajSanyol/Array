@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int gcdOfOddEvenSums(int n) {
+        int sumOFEven = n*(n+1);
+        int sumOFOdd = n*n;
+
+        if(sumOFEven==0){
+             return sumOFOdd;
+        }
+
+        if(sumOFOdd==0){
+             return sumOFEven;
+        }
+
+        while(sumOFOdd>0 && sumOFEven>0){
+            if(sumOFOdd>sumOFEven){
+                 sumOFOdd = sumOFOdd-sumOFEven; 
+            }
+            else{
+                sumOFEven = sumOFEven-sumOFOdd; 
+            }
+        }
+        
+        return sumOFEven ==0 ? sumOFOdd : sumOFEven;
+    }
+};
