@@ -1,0 +1,63 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+
+        // this brute forceApproach ❤️❤️❤️❤️❤️
+        // int firstIndex, lastindex;
+        // for (int i = 0; i < nums.size() - 1; i++) {
+        //     for (int j = i + 1; j < nums.size(); j++) {
+        //         if (target == nums[i] + nums[j]) {
+        //              firstIndex=i;
+        //              lastindex=j;
+        //              break;
+        //         }
+        //     }
+        // }
+
+        // return {firstIndex,lastindex};
+
+        // 🚀🚀🚀🚀🚀🚀🚀 Better Approach
+        // using Hash map
+
+        // unordered_map<int, int> map;
+
+        // for (int i = 0; i < nums.size(); i++) {
+        //     int value = target-nums[i];
+        //     cout<<value<<" ";
+        //     if (map.find(value) != map.end()) {
+        //         firstIndex = i;
+        //         lastindex = map[value];
+        //         break;
+        //     }
+        //     map[nums[i]] = i;
+        // }
+        // return {firstIndex, lastindex};
+
+        // two pointer approach 🦁
+
+        vector<pair<int, int>> copyArr;
+        for (int i = 0; i < nums.size(); i++) {
+            copyArr.push_back({nums[i], i});
+        }
+
+        // Sort the copy array by value, not the original nums
+        sort(copyArr.begin(), copyArr.end());
+
+        int i = 0;
+        int j = copyArr.size() - 1;
+
+        while (i < j) {
+            int sum = copyArr[i].first + copyArr[j].first;
+
+            if (sum == target) {
+                // Return the original indices from the copy array
+                return {copyArr[i].second, copyArr[j].second};
+            } else if (sum < target) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return {};
+    }
+};
