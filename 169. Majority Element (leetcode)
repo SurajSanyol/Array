@@ -1,0 +1,56 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+
+        // unordered_map<int, int> map;
+
+        // for (int i = 0; i < nums.size(); i++) {
+        //     map[nums[i]]++;
+        // }
+        // int frequency = 0;
+        // int maxAppearNumber = 0;
+
+        // for (auto it : map) {
+
+        //     if (it.second > frequency) {
+
+        //         frequency = it.second;
+        //         maxAppearNumber = it.first;
+        //     }
+        // }
+
+        // return maxAppearNumber;
+
+        // we will use moore's  Voting Algor 🚀🚀🚀🚀🚀
+
+        int element;
+        int count = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+
+            if (count == 0) {
+                count++;
+                element = nums[i];
+
+            } else if (element == nums[i]) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        
+        // this is very important edge case, but in this question we donot need this code 
+        int count1 = 0;
+        for (int i = 0; i < nums.size(); i++) {
+
+            if (element == nums[i]) {
+                count1++;
+            }
+        }
+
+        if (count1 > (nums.size() / 2))
+            return element;
+
+        return -1;
+    }
+};
