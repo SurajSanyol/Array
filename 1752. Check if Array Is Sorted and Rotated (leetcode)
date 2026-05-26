@@ -41,3 +41,22 @@ public:
         return true;
     }
 };
+
+
+most optimize  🚀🚀🚀🚀🚀🚀🚀🚀 
+
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+         int dropPoint = 0;
+         int size = nums.size();
+          for(int i =0;i<nums.size();i++){
+             if(nums[i]>nums[(i+1)%size]){
+                dropPoint++;
+             }
+          }
+          if(dropPoint>1) return false;
+
+          return true;
+    }
+};
