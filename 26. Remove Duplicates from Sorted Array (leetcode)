@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        // set<int>uniqueValue;
+
+        // for(int i =0;i<nums.size();i++){
+        //     uniqueValue.insert(nums[i]);
+        // }
+        
+        // int index =0;
+        // for(auto item :uniqueValue){
+        //     nums[index]=item;
+        //     index++;
+        // }
+        // return index;
+
+        // 🚀🚀🚀🚀🚀 optimal solution
+
+        int i =0,j=1;
+
+        while(j<nums.size()){
+            if(nums[i]!=nums[j]){
+               nums[i+1]=nums[j];
+               i++;
+            }
+            j++;
+        }
+
+        return i+1;
+    }
+};
